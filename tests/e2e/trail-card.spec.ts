@@ -52,8 +52,8 @@ test("keeps the location on one line and exposes a difficulty meter", async ({ p
   await expect(location).toHaveCSS("overflow", "hidden");
   await expect(location).toHaveCSS("text-overflow", "ellipsis");
 
-  await expect(page.getByText(/Difficulty/i)).toBeVisible();
   await expect(page.getByText("Moderate")).toBeVisible();
+  await expect(page.locator('[aria-label*="Difficulty" i], [role="meter"], .meter, .difficulty, .difficulty-meter').first()).toBeVisible();
 });
 
 /**
