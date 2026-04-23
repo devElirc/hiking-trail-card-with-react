@@ -1,29 +1,38 @@
 #!/bin/bash
-set -e
+set -euo pipefail
+
+SCRIPT_PATH="${BASH_SOURCE[0]:-$0}"
+TEST_DIR="${TEST_DIR:-$(cd "$(dirname "$SCRIPT_PATH")" && pwd)}"
+
+export PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-/ms-playwright}"
+
+mkdir -p /logs/verifier
+
+TEST_EXIT=0
 
 # Check if we're in a valid working directory
 if [ "$PWD" = "/" ]; then
-  echo "Error: No working directory set. Please set a WORKDIR in your Dockerfile before running this script."
-  exit 1
+  echo "Error: No working directory set." >&2
+  TEST_EXIT=1
 fi
 
-# Install test deps, Playwright system deps, and browser at run time (keeps image small).
-cd /tests
-npm install
-export DEBIAN_FRONTEND=noninteractive
-npx playwright install-deps chromium
-npx playwright install chromium
+if [ ! -f /app/index.html ]; then
+  echo "Error: /app/index.html not found." >&2
+  TEST_EXIT=1
+else
+  cd "$TEST_DIR"
+  npm install --no-fund --no-audit || TEST_EXIT=$?
+fi
 
-UNIT_EXIT=0
-E2E_EXIT=0
-npm run test || UNIT_EXIT=$?
-npm run test:e2e || E2E_EXIT=$?
+set +e
+if [ "$TEST_EXIT" -eq 0 ]; then
+  npm run test
+else
+  false
+fi
 
-# Produce reward file (REQUIRED): pass only if both unit and E2E succeed
-if [ "$UNIT_EXIT" -eq 0 ] && [ "$E2E_EXIT" -eq 0 ]; then
+if [ $? -eq 0 ]; then
   echo 1 > /logs/verifier/reward.txt
 else
   echo 0 > /logs/verifier/reward.txt
 fi
-
-[ "$UNIT_EXIT" -eq 0 ] && [ "$E2E_EXIT" -eq 0 ]

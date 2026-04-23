@@ -3,6 +3,8 @@ import { defineConfig, devices } from "@playwright/test";
 /**
  * E2E tests run against the app at /app (served by webServer).
  */
+const appDir = process.env.APP_DIR || "/app";
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -17,7 +19,7 @@ export default defineConfig({
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   // Serve /app where the solution (and task root in sandbox) puts index.html.
   webServer: {
-    command: "npx serve /app -p 3000",
+    command: `npx serve ${appDir} -p 3000`,
     url: "http://localhost:3000",
     reuseExistingServer: false,
     timeout: 15_000,
