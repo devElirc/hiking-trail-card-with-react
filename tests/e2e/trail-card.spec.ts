@@ -14,9 +14,9 @@ test("renders the Misty Ridge Loop trail card content and link target", async ({
   await expect(card.getByText("North Cascades")).toBeVisible();
   await expect(card.getByText("4.7")).toBeVisible();
   await expect(card.getByText("Cascade Pass Trailhead, Marblemount, Washington")).toBeVisible();
-  await expect(card.getByText("12.4 km")).toBeVisible();
-  await expect(card.getByText("540 m")).toBeVisible();
-  await expect(card.getByText("3h 20m")).toBeVisible();
+  await expect(card.getByText("12.4 km").first()).toBeVisible();
+  await expect(card.getByText("540 m").first()).toBeVisible();
+  await expect(card.getByText("3h 20m").first()).toBeVisible();
   await expect(card.getByText("Moderate")).toBeVisible();
   await expect(card.getByText("forest ridge")).toBeVisible();
   await expect(card.getByText("Best after early morning fog lifts")).toBeVisible();
@@ -36,9 +36,9 @@ test("uses the trail image with readable overlays and accessible labels", async 
   await expect(card.getByText("North Cascades")).toBeVisible();
   await expect(card.getByText("4.7")).toBeVisible();
   await expect(card.getByText("Best after early morning fog lifts")).toBeVisible();
-  await expect(card.getByText(/Distance|Length/i)).toBeVisible();
-  await expect(card.getByText(/Ascent/i)).toBeVisible();
-  await expect(card.getByText(/Time/i)).toBeVisible();
+  await expect(card.getByText(/Distance|Length/i).first()).toBeVisible();
+  await expect(card.getByText(/Ascent/i).first()).toBeVisible();
+  await expect(card.getByText(/Time/i).first()).toBeVisible();
 });
 
 /**
