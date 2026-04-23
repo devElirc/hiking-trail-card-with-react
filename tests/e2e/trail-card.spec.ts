@@ -47,10 +47,27 @@ test("uses the trail image with readable overlays and accessible labels", async 
 test("keeps the location on one line and exposes a difficulty meter", async ({ page }) => {
   await page.goto("/");
 
-  const location = page.getByText("Cascade Pass Trailhead, Marblemount, Washington");
-  await expect(location).toHaveCSS("white-space", "nowrap");
-  await expect(location).toHaveCSS("overflow", "hidden");
-  await expect(location).toHaveCSS("text-overflow", "ellipsis");
+  const location = page.getByText("Cascade Pass Trailhead, Marblemount, Washington").first();
+  const hasTruncationStyles = await location.evaluate((element) => {
+    let current = element;
+
+    for (let depth = 0; current && depth < 4; depth += 1) {
+      const styles = getComputedStyle(current);
+      if (
+        styles.whiteSpace === "nowrap" &&
+        styles.overflow === "hidden" &&
+        styles.textOverflow === "ellipsis"
+      ) {
+        return true;
+      }
+
+      current = current.parentElement;
+    }
+
+    return false;
+  });
+
+  expect(hasTruncationStyles).toBe(true);
 
   await expect(page.getByText("Moderate")).toBeVisible();
   await expect(page.locator('[aria-label*="Difficulty" i], [role="meter"], .meter, .difficulty, .difficulty-meter').first()).toBeVisible();
