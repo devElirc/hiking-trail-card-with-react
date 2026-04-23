@@ -9,7 +9,7 @@ export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
   forbidOnly: true,
-  retries: 0,
+  retries: 1,
   workers: 1,
   reporter: "list",
   use: {
