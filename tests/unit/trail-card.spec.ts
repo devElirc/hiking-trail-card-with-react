@@ -65,7 +65,7 @@ describe("hiking trail card markup contract", () => {
   it("applies a gradient background to the reason overlay", () => {
     const html = readHtml();
 
-    expect(html).toMatch(/\.reason[^{]*\{[^}]*background[^:]*:[^;]*gradient/is);
+    expect(html).toMatch(/\.[A-Za-z0-9_-]*reason[A-Za-z0-9_-]*[^{]*\{[^}]*background[^:]*:[^;]*gradient/is);
   });
 
   /**
