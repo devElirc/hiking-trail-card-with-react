@@ -60,6 +60,15 @@ describe("hiking trail card markup contract", () => {
   });
 
   /**
+   * Contract: the reason overlay should use a gradient background, as required by the task.
+   */
+  it("applies a gradient background to the reason overlay", () => {
+    const html = readHtml();
+
+    expect(html).toMatch(/\.reason[^{]*\{[^}]*background[^:]*:[^;]*gradient/is);
+  });
+
+  /**
    * Contract: the interaction styling should include hover lift, stronger shadow, and image zoom.
    */
   it("includes hover lift and image zoom styling", () => {

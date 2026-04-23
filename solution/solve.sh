@@ -219,7 +219,7 @@ cat > "$APP_DIR/index.html" <<'EOF'
         </section>
         <section class="content">
           <h1>Misty Ridge Loop</h1>
-          <p class="location" data-testid="trail-location">Pin: Cascade Pass Trailhead, Marblemount, Washington</p>
+          <p class="location" data-testid="trail-location">Cascade Pass Trailhead, Marblemount, Washington</p>
           <div class="stats" aria-label="Trail stats">
             <div class="stat" aria-label="Trail distance"><span>Distance</span>12.4 km</div>
             <div class="stat" aria-label="Elevation gain"><span>Ascent</span>540 m</div>
