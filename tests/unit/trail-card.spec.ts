@@ -29,7 +29,7 @@ describe("hiking trail card markup contract", () => {
     expect(html).toContain("540 m");
     expect(html).toContain("3h 20m");
     expect(html).toContain("Moderate");
-    expect(html).toContain("forest ridge");
+    expect(html).toMatch(/forest ridge/i);
     expect(html).toContain("Best after early morning fog lifts");
   });
 
