@@ -67,7 +67,7 @@ else
 fi
 
 if [ "$TEST_EXIT" -eq 0 ]; then
-  true
+  :
 else
   false
 fi

@@ -15,7 +15,7 @@ fi
 # Inspect the existing placeholder before replacing it.
 grep -n "placeholder\|Build the Misty Ridge Loop trail card here" "$APP_FILE" || true
 
-python - <<'PY'
+python3 - <<'PY'
 import os
 from pathlib import Path
 
