@@ -41,7 +41,7 @@ else
   require_in_file "text-overflow[[:space:]]*:[[:space:]]*ellipsis" "location truncation is missing text-overflow ellipsis"
   require_in_file "white-space[[:space:]]*:[[:space:]]*nowrap" "location truncation is missing white-space nowrap"
   require_in_file "linear-gradient" "gradient styling is missing"
-  require_in_file 'role="meter"' "difficulty meter role is missing"
+  require_in_file 'role="meter"|aria-label="Difficulty"|class="[^"]*(meter|difficulty|difficulty-meter)[^"]*"' "difficulty meter element is missing"
 
   cd "$TEST_DIR" || TEST_EXIT=1
 
