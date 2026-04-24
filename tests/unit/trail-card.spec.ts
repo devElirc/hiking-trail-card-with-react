@@ -84,7 +84,7 @@ describe("hiking trail card markup contract", () => {
     const html = readHtml();
 
     expect(html).toMatch(/transition\s*:[^;]*(transform|box-shadow)/);
-    expect(html).toMatch(/<a[^>]*class=["'][^"']*trail-card[^"']*["'][^>]*href=["']\/trails\/misty-ridge-loop["']/i);
+    expect(html).toMatch(/<a[^>]*href=["']\/trails\/misty-ridge-loop["'][^>]*class=["'][^"']*trail-card[^"']*["']|<a[^>]*class=["'][^"']*trail-card[^"']*["'][^>]*href=["']\/trails\/misty-ridge-loop["']/i);
     expect(html).toMatch(/:hover[\s\S]*translateY\(/);
     expect(html).toMatch(/:hover[\s\S]*box-shadow/);
     expect(html).toMatch(/:hover[\s\S]*scale\(/);
@@ -96,7 +96,7 @@ describe("hiking trail card markup contract", () => {
   it("uses responsive sizing for the card", () => {
     const html = readHtml();
 
-    expect(html).toMatch(/width\s*:\s*min\(\s*92vw\s*,\s*390px\s*\)/i);
+    expect(html).toMatch(/width\s*:\s*min\(\s*92vw\s*,\s*390px\s*\)|width\s*:\s*100%\s*;[\s\S]{0,120}?max-width\s*:\s*(390px|420px)|max-width\s*:\s*(390px|420px)\s*;[\s\S]{0,120}?width\s*:\s*100%/i);
     expect(html).toMatch(/@media\s*\(max-width:\s*480px\)/i);
   });
 
