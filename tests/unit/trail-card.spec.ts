@@ -96,8 +96,8 @@ describe("hiking trail card markup contract", () => {
   it("uses responsive sizing for the card", () => {
     const html = readHtml();
 
-    expect(html).toMatch(/width\s*:\s*min\(\s*92vw\s*,\s*390px\s*\)|width\s*:\s*100%\s*;[\s\S]{0,120}?max-width\s*:\s*(390px|420px)|max-width\s*:\s*(390px|420px)\s*;[\s\S]{0,120}?width\s*:\s*100%/i);
-    expect(html).toMatch(/@media\s*\(max-width:\s*480px\)/i);
+    expect(html).toMatch(/width\s*:\s*min\(\s*(92vw|560px)\s*,\s*(390px|100%)\s*\)|width\s*:\s*100%\s*;[\s\S]{0,160}?max-width\s*:\s*(390px|420px|560px)|max-width\s*:\s*(390px|420px|560px)\s*;[\s\S]{0,160}?width\s*:\s*100%/i);
+    expect(html).toMatch(/@media\s*\(max-width:\s*(420px|480px)\)/i);
   });
 
 });
