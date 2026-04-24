@@ -60,6 +60,15 @@ describe("hiking trail card markup contract", () => {
   });
 
   /**
+   * Contract: the image should fail gracefully so the card still has a complete media area.
+   */
+  it("includes an explicit image-failure fallback hook", () => {
+    const html = readHtml();
+
+    expect(html).toMatch(/onerror\s*=\s*["'][^"']+["']/i);
+  });
+
+  /**
    * Contract: the reason overlay should use a gradient background, as required by the task.
    */
   it("applies a gradient background to the reason overlay", () => {
@@ -75,9 +84,20 @@ describe("hiking trail card markup contract", () => {
     const html = readHtml();
 
     expect(html).toMatch(/transition\s*:[^;]*(transform|box-shadow)/);
+    expect(html).toMatch(/<a[^>]*class=["'][^"']*trail-card[^"']*["'][^>]*href=["']\/trails\/misty-ridge-loop["']/i);
     expect(html).toMatch(/:hover[\s\S]*translateY\(/);
     expect(html).toMatch(/:hover[\s\S]*box-shadow/);
     expect(html).toMatch(/:hover[\s\S]*scale\(/);
+  });
+
+  /**
+   * Contract: the card should advertise a responsive width instead of being fixed-width only.
+   */
+  it("uses responsive sizing for the card", () => {
+    const html = readHtml();
+
+    expect(html).toMatch(/width\s*:\s*min\(\s*92vw\s*,\s*390px\s*\)/i);
+    expect(html).toMatch(/@media\s*\(max-width:\s*480px\)/i);
   });
 
 });

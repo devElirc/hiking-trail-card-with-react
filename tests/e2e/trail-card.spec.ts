@@ -89,3 +89,17 @@ test("adds hover lift and image zoom interactions", async ({ page }) => {
   await card.hover();
   await expect(card).not.toHaveCSS("box-shadow", beforeShadow);
 });
+
+/**
+ * Verify the link card uses a responsive width rather than a desktop-only fixed layout.
+ */
+test("uses a responsive card width on small screens", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+
+  const card = page.getByRole("link", { name: /misty ridge loop/i });
+  const width = await card.evaluate((element) => element.getBoundingClientRect().width);
+
+  expect(width).toBeLessThanOrEqual(390);
+  expect(width).toBeGreaterThan(280);
+});

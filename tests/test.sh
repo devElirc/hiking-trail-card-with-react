@@ -21,12 +21,12 @@ if [ ! -f /app/index.html ]; then
   TEST_EXIT=1
 else
   cd "$TEST_DIR"
-  npm install --no-fund --no-audit || TEST_EXIT=$?
+  npm ci --no-fund --no-audit || TEST_EXIT=$?
 fi
 
 set +e
 if [ "$TEST_EXIT" -eq 0 ]; then
-  npm run test
+  npm run test:unit && npm run test:e2e
 else
   false
 fi

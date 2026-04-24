@@ -1,24 +1,19 @@
-Build a polished hiking trail card in /app/index.html by replacing the current placeholder card.
+Build a polished hiking trail card in /app/index.html by replacing the placeholder content.
 
-Use the trail data for a card about Misty Ridge Loop, with the trail ID set to misty-ridge-loop. 
-The card should show the region as North Cascades, the rating as 4.7, and the location as Cascade Pass Trailhead, Marblemount, Washington. 
-It should also include the trail details 12.4 km for length, 540 m for ascent, 3h 20m for time, Moderate for difficulty, and forest ridge for terrain. Use images/trail-card.jpg as the image, show the message Best after early morning fog lifts, and use gradient as the reason style.
+Use the trail data for Misty Ridge Loop with trail ID `misty-ridge-loop`. The card needs to show region `North Cascades`, rating `4.7`, location `Cascade Pass Trailhead, Marblemount, Washington`, length `12.4 km`, ascent `540 m`, time `3h 20m`, difficulty `Moderate`, terrain `forest ridge`, and the message `Best after early morning fog lifts`. Use `images/trail-card.jpg` for the image and style that reason message with a gradient overlay.
 
-The whole card should work as one clickable link to /trails/misty-ridge-loop.
+Make the entire card a single clickable link to `/trails/misty-ridge-loop`. The hover lift and stronger hover shadow should apply to that outer clickable card element, not just to something nested inside it.
 
-The card should feel polished and well designed, with clear spacing, a responsive width, and strong visual hierarchy. It should look good on both desktop and mobile.
+The card should feel polished, with clear spacing, a responsive width, and strong visual hierarchy on both desktop and mobile.
 
-At the top of the card, show a wide trail image. Use images/trail-card.jpg as the image source, and handle the image in a safe way so the card still looks complete if the image fails to load. Add the region label on top of the image, and also show a rating badge with the trail rating.
+At the top, show a wide trail image using `images/trail-card.jpg`. Handle image failure safely so the card still looks complete if the image does not load. Put the region label over the image and include a rating badge there too.
 
-Show the reason message over the bottom of the image using the gradient style. The message should stay neat and easy to read without taking too much space.
+Show the reason message across the bottom of the image with a gradient treatment that stays readable without taking over the card.
 
-Below the image, show the trail name as the main title. Under that, show the location text in a single line. Long location text should be trimmed cleanly instead of wrapping onto multiple lines.
+Below the image, show the trail name as the main title. Keep the location on a single line and trim long text cleanly instead of wrapping.
 
-Add a compact stats row that shows the trail’s distance, ascent, and time.
+Add a compact stats row for distance, ascent, and time.
 
-At the bottom of the card, show a footer with a visible difficulty meter and the terrain text.
+At the bottom, show a footer with visible `Moderate` difficulty text, a visible difficulty meter, and the terrain text.
 
-Make sure the card feels interactive. Add a gentle image zoom effect on hover, and make the card lift slightly with a stronger shadow on hover.
-
-Use accessible text and labels where needed so the card is easy to understand and easy to use.
-
+Add a gentle image zoom on hover and make the card feel interactive without losing readability. Use accessible labels or text where needed so the card is easy to understand and use.
