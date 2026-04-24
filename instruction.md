@@ -1,12 +1,15 @@
 Build a polished hiking trail card in /app/index.html by replacing the placeholder content.
 
-Use the trail data for Misty Ridge Loop with trail ID "misty-ridge-loop". The card needs to show region "North Cascades", rating "4.7", location "Cascade Pass Trailhead, Marblemount, Washington", length "12.4 km", ascent "540 m", time "3h 20m", difficulty "Moderate", terrain "forest ridge", and the message "Best after early morning fog lifts". Use "images/trail-card.jpg" for the image and style that reason message with a gradient overlay.
+Use the trail data for Misty Ridge Loop with trail ID "misty-ridge-loop". 
+The card needs to show region "North Cascades", rating "4.7", location "Cascade Pass Trailhead, Marblemount, Washington", length "12.4 km", ascent "540 m", time "3h 20m", difficulty "Moderate", terrain "forest ridge", and the message "Best after early morning fog lifts". Use "images/trail-card.jpg" for the image and style that reason message with a gradient overlay.
 
-Make the entire card a single clickable link to "/trails/misty-ridge-loop". The hover lift and stronger hover shadow should apply to that outer clickable card element, not just to something nested inside it.
+Make the entire card a single clickable link to "/trails/misty-ridge-loop". 
+The hover lift and stronger hover shadow should apply to that outer clickable card element, not just to something nested inside it.
 
 The card should feel polished, with clear spacing, a responsive width, and strong visual hierarchy on both desktop and mobile.
 
-At the top, show a wide trail image using "images/trail-card.jpg". Handle image failure safely so the card still looks complete if the image does not load. Put the region label over the image and include a rating badge there too.
+At the top, show a wide trail image using "images/trail-card.jpg". 
+Handle image failure safely so the card still looks complete if the image does not load. Put the region label over the image and include a rating badge there too.
 
 Show the reason message across the bottom of the image with a gradient treatment that stays readable without taking over the card.
 
