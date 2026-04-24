@@ -32,8 +32,10 @@ else
   grep -q "linear-gradient" "$APP_FILE" || TEST_EXIT=1
   grep -q 'role="meter"' "$APP_FILE" || TEST_EXIT=1
 
-  cd "$TEST_DIR"
-  npm ci --no-fund --no-audit || TEST_EXIT=$?
+  cd "$TEST_DIR" || TEST_EXIT=1
+
+  echo "Installing verifier dependencies..."
+  npm install --no-fund --no-audit || TEST_EXIT=$?
 fi
 
 set +e
